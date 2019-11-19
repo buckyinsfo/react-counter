@@ -3,6 +3,17 @@ import logo from './logo.svg';
 import './App.css';
 import { FaMinus, FaPlus } from 'react-icons/fa'
 
+const useState = (defaultValue) => {
+  const setValue = (newValue) => {
+    // TODO:
+    // set value\
+    // re-render
+  }
+  const tuple = [defaultValue, setValue]
+  return tuple
+}
+
+
 const App = () => {
   const [minutes, setMinutes] = React.useState(5)
   const [error, setError] = React.useState(null)
@@ -52,7 +63,14 @@ const App = () => {
       <div style={{ textAlign: "center" }}>
         { error && (
           <marquee>
-              Oh boy...  an error!
+            <p>
+              {error} {" "}
+              <span role="img" aria-label="Oh boy...">
+              🐬
+              </span>
+              <br />
+              <button onClick={() => {setError(null)}}>dismiss</button>
+            </p>
           </marquee>
         )}
       </div>
