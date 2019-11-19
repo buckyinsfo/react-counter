@@ -1,22 +1,41 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
 import { FaMinus, FaPlus } from 'react-icons/fa'
 
+const RenderFromComponent = () => {
+  calls = -1
+  ReactDOM.render(<App />, document.getElementById('root'));
+}
+
+const states = []
+let calls = -1
+
+// Practice implementation of useState to understand the basics of the React impl.
 const useState = (defaultValue) => {
-  const setValue = (newValue) => {
-    // TODO:
-    // set value\
-    // re-render
+  const callId = ++calls
+  
+  if (states[callId]) {
+    return states[callId]
   }
+
+  const setValue = (newValue) => {
+    states[callId][0] = newValue
+
+    RenderFromComponent()
+  }
+
   const tuple = [defaultValue, setValue]
+  states[callId] = tuple
   return tuple
 }
 
 
+
 const App = () => {
-  const [minutes, setMinutes] = React.useState(5)
-  const [error, setError] = React.useState(null)
+  const [minutes, setMinutes] = useState(5)
+  const [error, setError] = useState(null)
 
   const handleAdd = () => {
     if (minutes < 9) {
