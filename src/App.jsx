@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
+
+import Play from './Play'
+import Play2 from './Play2'
+
 import { FaMinus, FaPlus } from 'react-icons/fa'
 
 const RenderFromComponent = () => {
@@ -93,6 +97,8 @@ const App = () => {
           </marquee>
         )}
       </div>
+      <Play />
+      <Play2 />
     </div>
   );
 }
