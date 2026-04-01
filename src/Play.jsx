@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./Play.css";
-import Modal from "./Modal"
+import Modal from "./Modal";
 
 const Play = () => {
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);
-  const closeModal = (): void => setShow(false);
+  const closeModal = () => setShow(false);
 
   return (
     <div className="Play">
@@ -14,6 +14,6 @@ const Play = () => {
       <Modal closeModal={closeModal} show={show} />
     </div>
   );
-}
+};
 
 export default Play;
